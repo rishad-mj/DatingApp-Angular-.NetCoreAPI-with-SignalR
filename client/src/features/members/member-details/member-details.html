@@ -30,11 +30,13 @@
         </div>
         <div class="card-actions justify-between gap-2 px-2 mb-3">
             <button routerLink="/members" class="btn btn-info flex-1">Go back</button>
+             @if (!isCurrentUser()) {
             <button (click)="this.likesService.toggleLike(member.id)" 
                 [class.btn-error]="hasLiked()"
                 [class.btn-success]="!hasLiked()" 
                 class="btn flex-1">
                 {{hasLiked() ? 'Remove like' : 'Like user'}}</button>
+             }
         </div>
     </div>
 
